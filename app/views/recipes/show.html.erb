@@ -1,0 +1,7 @@
+<% @recipe = Recipe.find(params[:id])  %>
+<%= @recipe.name %>
+
+<button id="add"> Add an ingredient </button>
+<div id="ingredient">
+  <% render partial %>
+</div>
