@@ -27,13 +27,13 @@ $( document ).ready(function(){
     })
     $('.add').click(function(e){
       e.preventDefault();
-      e.stopPropagation();
+      var data = {ingredient_id: this.id, recipe_id: window.location.pathname}
       $.ajax({
         url: 'recipe_ingredient/create',
         type: "POST",
-        data: $(this).serialize(),
+        data: data,
         success: function(response){
-
+          console.log(response)
         },
         error: function(xhr){
        var errors = $.parseJSON(xhr.responseText).errors
