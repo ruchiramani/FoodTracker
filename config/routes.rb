@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :recipes
   resources :day_recipes
   resources :ingredients
+  resources :recipe_ingredients
 
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'

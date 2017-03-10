@@ -1,7 +1,11 @@
 <% @recipe = Recipe.find(params[:id])  %>
 <%= @recipe.name %>
 
-<button id="add"> Add an ingredient </button>
-<div id="ingredient">
-  <% render partial %>
+  <%= form_for Ingredient.new, :html => {:id => "show"} do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+  <% end %>
+
+<div id="ingredients">
+
 </div>
