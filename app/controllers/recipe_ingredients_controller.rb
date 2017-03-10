@@ -11,7 +11,7 @@ class RecipeIngredientsController < ApplicationController
     new_entry.quantity = 1
     new_entry.save
 
-    render json: new_entry.to_json
+    render json: new_entry.ingredient_id.to_json
 
   end
 

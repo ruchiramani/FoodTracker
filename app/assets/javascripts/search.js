@@ -23,7 +23,7 @@ $( document ).ready(function(){
 
   function parseResponse(response){
     response.forEach(function(item){
-      $("#ingredients").append(`<div> <p> ${item.name} -  ${item.calories} </p>  <button class="add" id="${item.id}"> Add </button> </div>` )
+      $("#ingredients").append(`<div id="item-${item.id}"> <p> ${item.name} -  ${item.calories} </p>  <button class="add" id="${item.id}"> Add </button> </div>` )
     })
     $('.add').click(function(e){
       e.preventDefault();
@@ -33,7 +33,7 @@ $( document ).ready(function(){
         type: "POST",
         data: data,
         success: function(response){
-          console.log(response)
+           $(`#item-${response}`).hide();
         },
         error: function(xhr){
        var errors = $.parseJSON(xhr.responseText).errors
